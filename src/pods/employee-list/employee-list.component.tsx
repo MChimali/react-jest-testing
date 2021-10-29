@@ -7,19 +7,19 @@ import {
 import { Employee } from './employee-list.vm';
 import { EmployeeRowComponent } from './components';
 
-interface Props {
-  employeeList: Employee[];
+interface Props<T> {
+  employeeList: T[];
   onCreate: () => void;
   onEdit: (id: string) => void;
   onDelete: (id: string) => void;
 }
 
-export const EmployeeListComponent: React.FunctionComponent<Props> = ({
+export const EmployeeListComponent = <T extends {}>({
   employeeList,
   onCreate,
   onEdit,
   onDelete,
-}) => {
+}: Props<T>) => {
   const { filteredList, onSearch, search } = useSearchBar(employeeList, [
     'name',
   ]);
@@ -46,7 +46,7 @@ export const EmployeeListComponent: React.FunctionComponent<Props> = ({
         searchPlaceholder: 'Buscar empleado',
         createButton: 'Nuevo empleado',
         deleteTitle: 'Eliminar Empleado',
-        deleteContent: props => contentRender(props),
+        deleteContent: (props) => contentRender(props),
         closeButton: 'Cancelar',
         acceptButton: 'Aceptar',
       }}

@@ -6,7 +6,7 @@ interface LabelProps {
   placeholder: string;
 }
 
-interface Props {
+export interface Props {
   search: string;
   onSearch: (search: string) => void;
   labels: LabelProps;
@@ -23,7 +23,7 @@ export const SearchBarComponent: React.FunctionComponent<Props> = props => {
       onChange={e => onSearch(e.target.value)}
       placeholder={labels.placeholder}
       InputProps={{
-        startAdornment: <SearchIcon />,
+        startAdornment: <SearchIcon aria-label="Search icon"/>,
       }}
     />
   );
