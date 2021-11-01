@@ -5,4 +5,5 @@ module.exports = {
   moduleDirectories: ['<rootDir>/src', 'node_modules'],
   setupFilesAfterEnv: ['<rootDir>/config/test/setup.ts'],
   moduleDirectories: ['<rootDir>/src', 'node_modules'],
+  resetModules: true
 };
