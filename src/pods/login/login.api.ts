@@ -7,3 +7,4 @@ export const isValidLogin = (
       resolve(user === 'admin' && password === 'test');
     }, 1000);
   });
+
