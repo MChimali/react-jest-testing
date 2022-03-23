@@ -3,6 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { SelectComponent } from './select.component';
 import { Lookup } from 'common/models';
 import userEvent from '@testing-library/user-event';
+
 interface test {
   items: Lookup[];
   label: string;
@@ -20,7 +21,9 @@ const props: test = {
   ],
   label: 'options',
   value: '',
-  onChange: jest.fn().mockImplementation((e, justo)=>{console.log(justo, e)}),
+  onChange: jest.fn().mockImplementation((e, justo) => {
+    console.log(justo, e);
+  }),
 };
 describe('common/components/form/select/select.component specs', () => {
   it('should render a select element when it feeds required props and three items', () => {
@@ -50,12 +53,15 @@ describe('common/components/form/select/select.component specs', () => {
     expect(listElement.textContent).toEqual('name2');
   });
 
-  it('should call onChange when selecting option', ()=>{
+  it('should call onChange when selecting option', () => {
     render(<SelectComponent {...props} />);
     const selectionButton = screen.getByRole('button', { name: 'options' });
     userEvent.click(selectionButton);
     const listElement = screen.getByRole('option', { name: 'name2' });
     userEvent.click(listElement);
-    expect(props.onChange).toHaveBeenCalledWith(expect.objectContaining({altKey:false}), expect.anything())
-  })
+    expect(props.onChange).toHaveBeenCalledWith(
+      expect.objectContaining({ altKey: false }),
+      expect.anything()
+    );
+  });
 });

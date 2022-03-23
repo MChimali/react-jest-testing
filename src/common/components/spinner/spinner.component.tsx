@@ -14,3 +14,4 @@ export const SpinnerComponent: React.FunctionComponent = () => {
     </Modal>
   );
 };
+
