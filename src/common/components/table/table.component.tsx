@@ -35,7 +35,7 @@ interface Props<T extends object = {}> {
   className?: string;
 }
 
-export const TableComponent: React.FunctionComponent<Props> = props => {
+export const TableComponent: React.FunctionComponent<Props> = (props) => {
   const {
     tableProps,
     headerGroups,
@@ -97,15 +97,13 @@ export const TableComponent: React.FunctionComponent<Props> = props => {
             isOpen={isOpenConfirmation}
             onAccept={onDelete}
             onClose={onCloseConfirmation}
-            title={labels.deleteTitle}
+            title={'hola'}
             labels={{
               closeButton: labels.closeButton,
               acceptButton: labels.acceptButton,
             }}
           >
-            <Typography variant="body1">
-              {labels.deleteContent({ itemName: itemToDeleteName })}
-            </Typography>
+            {labels.deleteContent({ itemName: itemToDeleteName })}
           </ConfirmationDialogComponent>
         )}
       </div>

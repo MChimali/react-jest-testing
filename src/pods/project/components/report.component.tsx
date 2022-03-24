@@ -23,8 +23,9 @@ export const ReportComponent: React.FunctionComponent<Props> = ({
             name="month"
             label="Mes"
             items={monthList}
-            disabled
+
             className={classes.month}
+            /* onChange={(e, justo)=>{console.log(e), console.log(justo)}} */
           />
           <SelectComponent
             name="year"
